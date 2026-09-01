@@ -80,82 +80,82 @@ export default function LetterSheet({ lang, onDone, initial }: LetterSheetProps)
       postScript: postScript.trim() || undefined,
       waxSealDesign: initial?.waxSealDesign || 'iti',
       waxSealColor: initial?.waxSealColor || 'crimson',
-      envelopeColor: initial?.envelopeColor || '#7F1D1D',
+      envelopeColor: initial?.envelopeColor || '#0F172A',
       language: lang,
     });
   };
 
   return (
     <form ref={sheetRef} onSubmit={handleSubmit} className="w-full max-w-2xl mx-auto px-4 py-8">
-      <div className="relative rounded-2xl p-6 sm:p-12 bg-[#FAF6EE] text-[#2C1810] deckle-edge paper-grain" style={{ fontFamily: 'var(--font-bn-serif)' }}>
+      <div className="relative rounded-2xl p-6 sm:p-12 bg-[#FAFDFE] text-slate-900 deckle-edge paper-grain shadow-xl border border-blue-950/20" style={{ fontFamily: 'var(--font-bn-serif)' }}>
         <div className="iti-watermark">নীলখাম</div>
 
         {/* Date & Place */}
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 text-xs text-amber-950/70 mb-8 font-serif">
-          <div className="flex items-center gap-1.5 border-b border-amber-900/20 pb-0.5">
-            <Calendar className="w-3.5 h-3.5 opacity-60" />
-            <input value={dateStr} onChange={(e) => setDateStr(e.target.value)} placeholder={lang === 'bn' ? 'তারিখ' : 'Date'} className="bg-transparent outline-none text-amber-950 w-36 sm:w-44" />
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 text-xs text-slate-600 mb-8 font-serif">
+          <div className="flex items-center gap-1.5 border-b border-blue-900/20 pb-0.5">
+            <Calendar className="w-3.5 h-3.5 opacity-60 text-blue-900" />
+            <input value={dateStr} onChange={(e) => setDateStr(e.target.value)} placeholder={lang === 'bn' ? 'তারিখ' : 'Date'} className="bg-transparent outline-none text-slate-900 w-36 sm:w-44" />
           </div>
-          <div className="flex items-center gap-1.5 border-b border-amber-900/20 pb-0.5">
-            <MapPin className="w-3.5 h-3.5 opacity-60" />
-            <input value={placeStr} onChange={(e) => setPlaceStr(e.target.value)} placeholder={lang === 'bn' ? 'স্থান' : 'Place'} className="bg-transparent outline-none text-amber-950 w-36 sm:w-44" />
+          <div className="flex items-center gap-1.5 border-b border-blue-900/20 pb-0.5">
+            <MapPin className="w-3.5 h-3.5 opacity-60 text-blue-900" />
+            <input value={placeStr} onChange={(e) => setPlaceStr(e.target.value)} placeholder={lang === 'bn' ? 'স্থান' : 'Place'} className="bg-transparent outline-none text-slate-900 w-36 sm:w-44" />
           </div>
         </div>
 
         {/* Salutation + Recipient */}
         <div className="flex flex-wrap items-baseline gap-2 mb-6 text-base sm:text-lg font-serif">
           <div className="relative">
-            <button type="button" onClick={() => setShowSalMenu(!showSalMenu)} className="flex items-center gap-1 font-semibold border-b border-amber-900/40 pb-0.5 text-amber-950 cursor-pointer">
-              {salutation} <ChevronDown className="w-3.5 h-3.5 opacity-60" />
+            <button type="button" onClick={() => setShowSalMenu(!showSalMenu)} className="flex items-center gap-1 font-semibold border-b border-blue-900/35 pb-0.5 text-slate-900 cursor-pointer">
+              {salutation} <ChevronDown className="w-3.5 h-3.5 opacity-60 text-blue-800" />
             </button>
             {showSalMenu && (
               <>
                 <div className="fixed inset-0 z-20" onClick={() => setShowSalMenu(false)} />
-                <div className="absolute left-0 mt-1 w-44 rounded-xl bg-[#FAF6EE] border border-amber-900/20 shadow-xl p-1 z-30 text-xs">
+                <div className="absolute left-0 mt-1 w-44 rounded-xl bg-[#FAFDFE] border border-blue-900/20 shadow-xl p-1 z-30 text-xs">
                   {salutations.map((s) => (
-                    <button key={s} type="button" onClick={() => { setSalutation(s); setShowSalMenu(false); }} className="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-amber-800/10 font-serif cursor-pointer">{s}</button>
+                    <button key={s} type="button" onClick={() => { setSalutation(s); setShowSalMenu(false); }} className="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-blue-900/10 text-slate-900 font-serif cursor-pointer">{s}</button>
                   ))}
                 </div>
               </>
             )}
           </div>
-          <input required value={recipientName} onChange={(e) => setRecipientName(e.target.value)} placeholder={lang === 'bn' ? 'প্রাপকের নাম' : "Recipient's Name"} className="bg-transparent border-b border-amber-900/40 pb-0.5 outline-none font-semibold text-amber-950 flex-1 min-w-[160px]" />
-          <span className="text-amber-900/60">,</span>
+          <input required value={recipientName} onChange={(e) => setRecipientName(e.target.value)} placeholder={lang === 'bn' ? 'প্রাপকের নাম' : "Recipient's Name"} className="bg-transparent border-b border-blue-900/35 pb-0.5 outline-none font-semibold text-slate-900 flex-1 min-w-[160px]" />
+          <span className="text-slate-500">,</span>
         </div>
 
         {/* Body */}
-        <textarea required rows={10} value={body} onChange={(e) => setBody(e.target.value)} placeholder={lang === 'bn' ? 'আপনার মনের কথা লিখুন...' : 'Write your letter...'} className="w-full bg-transparent outline-none resize-y text-base sm:text-lg leading-relaxed text-[#2C1810] placeholder:text-amber-900/35" style={{ lineHeight: '2.0', minHeight: '220px' }} />
+        <textarea required rows={10} value={body} onChange={(e) => setBody(e.target.value)} placeholder={lang === 'bn' ? 'আপনার মনের কথা লিখুন...' : 'Write your letter...'} className="w-full bg-transparent outline-none resize-y text-base sm:text-lg leading-relaxed text-slate-900 placeholder:text-slate-400" style={{ lineHeight: '2.0', minHeight: '220px' }} />
 
         {/* Sign-off + Sender */}
         <div className="flex flex-col items-end gap-2 text-right mt-6 text-base sm:text-lg font-serif">
           <div className="relative">
-            <button type="button" onClick={() => setShowSignMenu(!showSignMenu)} className="flex items-center gap-1 font-semibold border-b border-amber-900/40 pb-0.5 text-amber-950 cursor-pointer">
-              {signOff} <ChevronDown className="w-3.5 h-3.5 opacity-60" />
+            <button type="button" onClick={() => setShowSignMenu(!showSignMenu)} className="flex items-center gap-1 font-semibold border-b border-blue-900/35 pb-0.5 text-slate-900 cursor-pointer">
+              {signOff} <ChevronDown className="w-3.5 h-3.5 opacity-60 text-blue-800" />
             </button>
             {showSignMenu && (
               <>
                 <div className="fixed inset-0 z-20" onClick={() => setShowSignMenu(false)} />
-                <div className="absolute right-0 mt-1 w-52 rounded-xl bg-[#FAF6EE] border border-amber-900/20 shadow-xl p-1 z-30 text-xs text-left">
+                <div className="absolute right-0 mt-1 w-52 rounded-xl bg-[#FAFDFE] border border-blue-900/20 shadow-xl p-1 z-30 text-xs text-left">
                   {signOffs.map((s) => (
-                    <button key={s} type="button" onClick={() => { setSignOff(s); setShowSignMenu(false); }} className="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-amber-800/10 font-serif cursor-pointer">{s}</button>
+                    <button key={s} type="button" onClick={() => { setSignOff(s); setShowSignMenu(false); }} className="w-full text-left px-2.5 py-1.5 rounded-lg hover:bg-blue-900/10 text-slate-900 font-serif cursor-pointer">{s}</button>
                   ))}
                 </div>
               </>
             )}
           </div>
-          <input required value={senderName} onChange={(e) => setSenderName(e.target.value)} placeholder={lang === 'bn' ? 'আপনার নাম' : 'Your Name'} className="bg-transparent border-b border-amber-900/40 pb-0.5 outline-none font-bold text-right text-amber-950 min-w-[140px]" />
+          <input required value={senderName} onChange={(e) => setSenderName(e.target.value)} placeholder={lang === 'bn' ? 'আপনার নাম' : 'Your Name'} className="bg-transparent border-b border-blue-900/35 pb-0.5 outline-none font-bold text-right text-slate-900 min-w-[140px]" />
         </div>
 
         {/* P.S. */}
-        <div className="mt-8 pt-4 border-t border-amber-900/15 text-xs text-amber-900/80 font-serif">
-          <span className="font-bold">{lang === 'bn' ? 'পুনশ্চ:' : 'P.S.'} </span>
-          <input value={postScript} onChange={(e) => setPostScript(e.target.value)} placeholder={lang === 'bn' ? 'ছোট্ট কোনো বার্তা...' : 'A short note...'} className="bg-transparent outline-none text-amber-950 w-full sm:w-4/5 ml-1 inline-block" />
+        <div className="mt-8 pt-4 border-t border-blue-900/15 text-xs text-slate-600 font-serif">
+          <span className="font-bold text-slate-800">{lang === 'bn' ? 'পুনশ্চ:' : 'P.S.'} </span>
+          <input value={postScript} onChange={(e) => setPostScript(e.target.value)} placeholder={lang === 'bn' ? 'ছোট্ট কোনো বার্তা...' : 'A short note...'} className="bg-transparent outline-none text-slate-900 w-full sm:w-4/5 ml-1 inline-block" />
         </div>
       </div>
 
       <div className="mt-8 flex justify-end">
-        <button type="submit" className="px-8 py-3.5 rounded-full bg-gradient-to-r from-amber-800 via-rose-900 to-amber-900 text-amber-100 font-serif font-bold text-base shadow-md hover:shadow-lg hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center gap-2 cursor-pointer border border-amber-400/20">
-          <Feather className="w-4 h-4 text-amber-200" />
+        <button type="submit" className="px-8 py-3.5 rounded-full bg-gradient-to-r from-blue-700 via-indigo-800 to-slate-950 text-sky-50 font-serif font-bold text-base shadow-md hover:shadow-lg hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center gap-2 cursor-pointer border border-sky-400/30">
+          <Feather className="w-4 h-4 text-sky-200" />
           {lang === 'bn' ? 'সিলমোহর করুন →' : 'Seal & Send →'}
         </button>
       </div>

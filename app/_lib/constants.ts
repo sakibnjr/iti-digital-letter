@@ -11,9 +11,9 @@ export const WAX_COLORS: WaxColorConfig[] = [
 ];
 
 export const WAX_DESIGNS: WaxDesignConfig[] = [
-  { id: 'iti', nameBn: 'ইতি', nameEn: '"ইতি"', symbol: 'ইতি' },
-  { id: 'lotus', nameBn: 'পদ্ম', nameEn: 'Lotus', symbol: '🪷' },
+  { id: 'iti', nameBn: 'নীলখাম', nameEn: 'Neelkhaam', symbol: '💌' },
   { id: 'heart', nameBn: 'হৃদয়', nameEn: 'Heart', symbol: '♥' },
+  { id: 'lotus', nameBn: 'পদ্ম', nameEn: 'Lotus', symbol: '🪷' },
   { id: 'feather', nameBn: 'পালক', nameEn: 'Feather', symbol: '🪶' },
   { id: 'moon', nameBn: 'চাঁদ', nameEn: 'Moon', symbol: '🌙' },
   { id: 'rose', nameBn: 'গোলাপ', nameEn: 'Rose', symbol: '🌹' },
@@ -41,10 +41,10 @@ export const SIGN_OFFS_EN = [
 ];
 
 export const ENVELOPE_COLORS = [
+  { id: '#0F172A', nameBn: 'গাঢ় নীল', nameEn: 'Midnight Blue' },
+  { id: '#1E3A8A', nameBn: 'রয়্যাল নীল', nameEn: 'Royal Blue' },
   { id: '#7F1D1D', nameBn: 'লাল', nameEn: 'Carmine' },
-  { id: '#0F172A', nameBn: 'নীল', nameEn: 'Midnight' },
   { id: '#78350F', nameBn: 'বাদামী', nameEn: 'Kraft' },
   { id: '#064E3B', nameBn: 'সবুজ', nameEn: 'Forest' },
-  { id: '#831843', nameBn: 'গোলাপি', nameEn: 'Plum' },
   { id: '#1E293B', nameBn: 'স্লেট', nameEn: 'Slate' },
 ];

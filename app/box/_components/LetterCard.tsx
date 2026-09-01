@@ -24,40 +24,40 @@ export default function LetterCard({ item, lang, onDelete }: LetterCardProps) {
   };
 
   return (
-    <div className="bg-[#FAF6EE] border border-amber-900/20 rounded-2xl p-5 shadow-xs hover:shadow-sm transition-all flex flex-col justify-between paper-grain">
+    <div className="bg-[#FAFDFE] border border-blue-900/20 rounded-2xl p-5 shadow-xs hover:shadow-sm transition-all flex flex-col justify-between paper-grain">
       {/* Header */}
       <div className="flex items-center justify-between mb-3">
-        <span className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-serif font-bold uppercase tracking-wider ${item.type === 'sent' ? 'bg-amber-800/10 text-amber-900' : 'bg-emerald-800/10 text-emerald-900'}`}>
+        <span className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-serif font-bold uppercase tracking-wider ${item.type === 'sent' ? 'bg-blue-900/10 text-blue-900' : 'bg-emerald-800/10 text-emerald-900'}`}>
           {item.type === 'sent' ? <Send className="w-3 h-3" /> : <MailOpen className="w-3 h-3" />}
           {item.type === 'sent' ? (lang === 'bn' ? 'প্রেরিত' : 'Sent') : (lang === 'bn' ? 'প্রাপ্ত' : 'Received')}
         </span>
-        <span className="flex items-center gap-1 text-[11px] text-amber-900/60 font-serif"><Calendar className="w-3 h-3" />{letter.dateStr}</span>
+        <span className="flex items-center gap-1 text-[11px] text-slate-500 font-serif"><Calendar className="w-3 h-3 text-blue-800" />{letter.dateStr}</span>
       </div>
 
       {/* Recipient */}
       <div className="flex items-center gap-3 mb-2">
         <WaxSeal design={letter.waxSealDesign} color={letter.waxSealColor} size="sm" />
         <div>
-          <h3 className="font-serif font-bold text-base text-amber-950">{letter.salutation} {letter.recipientName}</h3>
-          <span className="text-xs text-amber-900/70 font-serif">{lang === 'bn' ? 'প্রেরক:' : 'From:'} {letter.senderName}</span>
+          <h3 className="font-serif font-bold text-base text-slate-900">{letter.salutation} {letter.recipientName}</h3>
+          <span className="text-xs text-slate-600 font-serif">{lang === 'bn' ? 'প্রেরক:' : 'From:'} {letter.senderName}</span>
         </div>
       </div>
 
       {/* Preview */}
-      <p className="text-xs font-serif text-amber-900/80 line-clamp-2 leading-relaxed italic bg-white/40 p-2.5 rounded-xl border border-amber-900/10 mb-4">&ldquo;{letter.body}&rdquo;</p>
+      <p className="text-xs font-serif text-slate-700 line-clamp-2 leading-relaxed italic bg-blue-50/40 p-2.5 rounded-xl border border-blue-900/10 mb-4">&ldquo;{letter.body}&rdquo;</p>
 
       {/* Footer */}
-      <div className="flex items-center justify-between pt-3 border-t border-amber-900/10 text-xs">
+      <div className="flex items-center justify-between pt-3 border-t border-blue-900/10 text-xs">
         <div className="flex gap-1">
-          <button type="button" onClick={handleCopy} className="p-1.5 rounded-lg text-amber-900/70 hover:text-amber-950 hover:bg-amber-900/10 transition-colors cursor-pointer">
+          <button type="button" onClick={handleCopy} className="p-1.5 rounded-lg text-slate-700 hover:text-slate-950 hover:bg-blue-900/10 transition-colors cursor-pointer">
             {copied ? <Check className="w-3.5 h-3.5 text-emerald-700" /> : <Copy className="w-3.5 h-3.5" />}
           </button>
           <button type="button" onClick={() => onDelete(letter.id)} className="p-1.5 rounded-lg text-rose-900/60 hover:text-rose-900 hover:bg-rose-900/10 transition-colors cursor-pointer">
             <Trash2 className="w-3.5 h-3.5" />
           </button>
         </div>
-        <Link href={url} className="flex items-center gap-1 px-3 py-1 rounded-full bg-amber-900/10 hover:bg-amber-900/20 text-amber-950 font-serif font-bold text-xs transition-colors">
-          {lang === 'bn' ? 'পড়ুন' : 'Open'} <ExternalLink className="w-3 h-3" />
+        <Link href={url} className="flex items-center gap-1 px-3 py-1 rounded-full bg-blue-900/10 hover:bg-blue-900/20 text-slate-900 font-serif font-bold text-xs transition-colors border border-blue-900/15">
+          {lang === 'bn' ? 'পড়ুন' : 'Open'} <ExternalLink className="w-3 h-3 text-blue-900" />
         </Link>
       </div>
     </div>

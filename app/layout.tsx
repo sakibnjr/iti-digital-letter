@@ -18,7 +18,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#FAF6EE",
+  themeColor: "#F0F4F8",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -74,7 +74,7 @@ export default function RootLayout({
       lang="bn"
       className={`${notoSerifBengali.variable} ${plusJakartaSans.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col selection:bg-amber-800/20 selection:text-amber-950 font-serif">
+      <body className="min-h-full flex flex-col selection:bg-blue-900/20 selection:text-blue-950 font-serif">
         {children}
       </body>
     </html>

@@ -91,7 +91,7 @@ export default function FeatureCards({ lang = 'bn' }: FeatureCardsProps) {
       />
 
       {/* Main Single Animated Showcase Stage */}
-      <div className="relative bg-[#FAF6EE] border border-amber-900/20 rounded-3xl p-8 sm:p-12 shadow-xl paper-grain overflow-hidden min-h-[360px] flex flex-col items-center justify-center">
+      <div className="relative bg-[#FAFDFE] border border-blue-950/15 rounded-3xl p-8 sm:p-12 shadow-xl paper-grain overflow-hidden min-h-[360px] flex flex-col items-center justify-center">
         {/* Subtle decorative watermark */}
         <div className="iti-watermark opacity-15">নীলখাম</div>
 

@@ -37,7 +37,7 @@ export default function WriteClient() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#FAF6EE]">
+    <div className="min-h-screen flex flex-col bg-[#F0F4F8]">
       <Navbar lang={lang} onLangChange={setLang} boxCount={boxCount} />
 
       <main className="flex-1 flex flex-col items-center">

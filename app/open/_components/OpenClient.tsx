@@ -77,11 +77,11 @@ export default function OpenClient() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex flex-col bg-[#FAF6EE]">
+      <div className="min-h-screen flex flex-col bg-[#F0F4F8]">
         <Navbar lang={lang} onLangChange={setLang} boxCount={boxCount} />
         <main className="flex-1 flex items-center justify-center p-4">
-          <div className="flex flex-col items-center gap-3 text-amber-950">
-            <Loader2 className="w-8 h-8 animate-spin opacity-70" />
+          <div className="flex flex-col items-center gap-3 text-slate-900">
+            <Loader2 className="w-8 h-8 animate-spin text-blue-800 opacity-70" />
             <span className="font-serif text-sm">
               {lang === "bn" ? "চিঠি খোলা হচ্ছে..." : "Loading letter..."}
             </span>
@@ -93,26 +93,26 @@ export default function OpenClient() {
 
   if (!letter)
     return (
-      <div className="min-h-screen flex flex-col bg-[#FAF6EE]">
+      <div className="min-h-screen flex flex-col bg-[#F0F4F8]">
         <Navbar lang={lang} onLangChange={setLang} boxCount={boxCount} />
         <main className="flex-1 flex items-center justify-center p-4">
-          <div className="bg-[#FAF6EE] border border-amber-900/20 rounded-3xl p-8 text-center max-w-md paper-grain shadow-xl">
+          <div className="bg-[#FAFDFE] border border-blue-900/20 rounded-3xl p-8 text-center max-w-md paper-grain shadow-xl">
             <div className="w-14 h-14 rounded-full bg-rose-900/10 text-rose-900 flex items-center justify-center mx-auto mb-4 border border-rose-900/20">
               <AlertCircle className="w-7 h-7" />
             </div>
-            <h2 className="font-serif text-xl font-bold text-amber-950 mb-2">
+            <h2 className="font-serif text-xl font-bold text-slate-900 mb-2">
               {lang === "bn" ? "চিঠি পাওয়া যায়নি" : "Letter Not Found"}
             </h2>
-            <p className="text-xs text-amber-900/70 font-serif mb-6">
+            <p className="text-xs text-slate-600 font-serif mb-6">
               {lang === "bn"
                 ? "লিংকটি সঠিক নয়।"
                 : "The link may be incomplete."}
             </p>
             <Link
               href="/write"
-              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-amber-800 to-rose-900 text-amber-100 font-serif font-bold text-xs shadow-md"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-blue-700 via-indigo-800 to-slate-950 text-sky-50 font-serif font-bold text-xs shadow-md border border-sky-400/20"
             >
-              <Feather className="w-4 h-4 text-amber-200" />
+              <Feather className="w-4 h-4 text-sky-200" />
               {lang === "bn" ? "নতুন চিঠি" : "Write Letter"}
             </Link>
           </div>
@@ -121,7 +121,7 @@ export default function OpenClient() {
     );
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#FAF6EE]">
+    <div className="min-h-screen flex flex-col bg-[#F0F4F8]">
       <Navbar lang={lang} onLangChange={setLang} boxCount={boxCount} />
       <main className="flex-1 flex items-center justify-center">
         {!opened ? (

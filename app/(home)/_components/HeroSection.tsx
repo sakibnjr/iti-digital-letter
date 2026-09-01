@@ -34,59 +34,58 @@ export default function HeroSection({ lang = 'bn' }: HeroSectionProps) {
   return (
     <section ref={containerRef} className="relative w-full min-h-[85vh] flex flex-col items-center justify-center px-4 py-16 overflow-hidden">
       {/* Floating feather accent */}
-      <div ref={featherRef} className="absolute top-16 right-[15%] opacity-20 text-amber-800 hidden sm:block">
+      <div ref={featherRef} className="absolute top-16 right-[15%] opacity-20 text-blue-800 hidden sm:block">
         <Feather className="w-16 h-16" />
       </div>
 
       {/* Title with artistic annotations & floating sparkles */}
-      <h1 data-hero-title className="font-serif text-4xl sm:text-5xl md:text-6xl font-extrabold text-amber-950 text-center leading-relaxed sm:leading-tight mb-8 max-w-3xl">
+      <h1 data-hero-title className="font-serif text-4xl sm:text-5xl md:text-6xl font-extrabold text-slate-900 text-center leading-relaxed sm:leading-tight mb-8 max-w-3xl">
         {lang === 'bn' ? (
           <>
             <span className="inline-block mr-2">আপনার</span>
             <span className="inline-block mr-2">হৃদয়ের</span>
-            <span className="bg-gradient-to-r from-rose-700 via-rose-600 to-amber-600 bg-clip-text text-transparent font-bold mr-2">
+            <span className="bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-700 bg-clip-text text-transparent font-bold mr-2">
               কথাগুলো,
             </span>
-            <SparkleText sparkleColor="#F59E0B" className="mx-2">
-              <span className="inline-block">মোমের সিলে</span>
+            <SparkleText sparkleColor="#38BDF8" className="mx-2">
+              <span className="inline-block text-blue-950">নীলখামে</span>
             </SparkleText>
-            <CurvedUnderlineText strokeColor="#9333EA" className="ml-2">
+            <CurvedUnderlineText strokeColor="#3B82F6" className="ml-2">
               <span className="inline-block">বাঁধুন</span>
             </CurvedUnderlineText>
           </>
         ) : (
           <>
             <span className="inline-block mr-2">Words from your</span>
-            <span className="bg-gradient-to-r from-rose-700 via-rose-600 to-amber-600 bg-clip-text text-transparent font-bold mr-2">
+            <span className="bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-700 bg-clip-text text-transparent font-bold mr-2">
               heart,
             </span>
-            <SparkleText sparkleColor="#F59E0B" className="mx-2">
-              <span className="inline-block">sealed in wax</span>
+            <SparkleText sparkleColor="#38BDF8" className="mx-2">
+              <span className="inline-block text-blue-950">sealed in blue</span>
             </SparkleText>
           </>
         )}
       </h1>
 
       {/* Subtitle */}
-      <p data-hero-sub className="text-sm sm:text-base text-amber-900/75 font-serif text-center max-w-lg mb-10 leading-relaxed">
+      <p data-hero-sub className="text-sm sm:text-base text-slate-700/80 font-serif text-center max-w-lg mb-10 leading-relaxed">
         {lang === 'bn'
           ? 'একটি চিঠি লিখুন, মোমের সিলমোহর দিন, আর পাঠিয়ে দিন ব্যক্তিগত লিংকে — শুধু প্রাপকই পড়তে পারবেন।'
           : 'Write a letter, seal it with wax, and send it through a private link — for the recipient’s eyes only.'}
       </p>
 
-
       {/* CTA */}
       <Link
         href="/write"
         data-hero-cta
-        className="group flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-amber-800 via-rose-900 to-amber-900 text-amber-50 font-serif font-bold text-base shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all border border-amber-400/20"
+        className="group flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-blue-700 via-indigo-800 to-slate-950 text-sky-50 font-serif font-bold text-base shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all border border-sky-400/25"
       >
-        <Feather className="w-5 h-5 text-amber-200 group-hover:rotate-12 transition-transform" />
+        <Feather className="w-5 h-5 text-sky-200 group-hover:rotate-12 transition-transform" />
         {lang === 'bn' ? 'চিঠি লিখুন' : 'Write a Letter'}
       </Link>
 
       {/* Decorative radial glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full bg-amber-800/5 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full bg-blue-600/5 blur-3xl pointer-events-none" />
     </section>
   );
 }

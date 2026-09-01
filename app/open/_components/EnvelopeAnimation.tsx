@@ -15,7 +15,7 @@ export default function EnvelopeAnimation({ onComplete }: EnvelopeAnimationProps
   useGSAP(() => {
     // Fire confetti
     try {
-      confetti({ particleCount: 45, spread: 70, origin: { y: 0.55 }, colors: ['#BE123C', '#C5A059', '#F59E0B', '#FAF6EE'] });
+      confetti({ particleCount: 45, spread: 70, origin: { y: 0.55 }, colors: ['#2563EB', '#38BDF8', '#F59E0B', '#F0F4F8'] });
     } catch {}
 
     const tl = gsap.timeline({ onComplete });
@@ -32,10 +32,10 @@ export default function EnvelopeAnimation({ onComplete }: EnvelopeAnimationProps
     <div ref={ref} className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm">
       <div className="relative w-64 h-40">
         {/* Flap */}
-        <div data-flap className="absolute top-0 left-0 right-0 h-1/2 bg-amber-900/30 rounded-t-xl" style={{ transformOrigin: 'top center', perspective: '800px' }} />
+        <div data-flap className="absolute top-0 left-0 right-0 h-1/2 bg-blue-900/30 rounded-t-xl" style={{ transformOrigin: 'top center', perspective: '800px' }} />
         {/* Sliding letter */}
         <div data-letter-slide className="absolute inset-0 flex items-center justify-center">
-          <div className="w-48 h-32 bg-[#FAF6EE] rounded-xl shadow-lg border border-amber-900/20 flex items-center justify-center font-serif text-amber-950 text-sm">
+          <div className="w-48 h-32 bg-[#FAFDFE] rounded-xl shadow-lg border border-blue-900/20 flex items-center justify-center font-serif text-slate-900 text-sm">
             ✉️
           </div>
         </div>
