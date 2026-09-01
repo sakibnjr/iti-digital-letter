@@ -14,11 +14,12 @@ export default function Navbar({ lang = 'bn', onLangChange, boxCount = 0 }: Navb
     <header className="sticky top-0 z-40 w-full backdrop-blur-md bg-[#FAF6EE]/90 border-b border-amber-900/10">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-sky-900 via-indigo-950 to-blue-950 flex items-center justify-center text-amber-100 font-serif font-bold text-base shadow-xs border border-sky-400/30 group-hover:scale-105 transition-transform">
-            নী
+        <Link href="/" className="flex items-center gap-2.5 group">
+          <div className="w-8 h-8 rounded-xl overflow-hidden shadow-xs border border-sky-400/30 group-hover:scale-105 transition-transform flex items-center justify-center">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/icon.svg" alt="Neelkhaam" className="w-full h-full object-cover" />
           </div>
-          <span className="font-serif text-xl font-bold text-amber-950">
+          <span className="font-serif text-xl font-bold text-amber-950 tracking-tight">
             {lang === 'bn' ? 'নীলখাম' : 'Neelkhaam'}
           </span>
         </Link>

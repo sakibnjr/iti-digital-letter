@@ -57,6 +57,11 @@ export const metadata: Metadata = {
     description:
       "Romanticize your words into vintage wax-sealed digital letters. No accounts, zero tracking, just pure vibes.",
   },
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/app-icon.svg",
+  },
 };
 
 export default function RootLayout({
