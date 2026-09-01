@@ -25,6 +25,66 @@ export function SparkleIcon({ size = 16, color = '#F59E0B', className = '', styl
   );
 }
 
+/** Vector Thought Cloud / Bubble SVG with dreamy soft blue & golden accents */
+export function ThoughtCloudIcon({
+  className = '',
+  size = 32,
+}: {
+  className?: string;
+  size?: number;
+}) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 36 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={`inline-block filter drop-shadow-sm select-none ${className}`}
+    >
+      <defs>
+        <linearGradient id="thoughtCloudGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#38BDF8" />
+          <stop offset="50%" stopColor="#60A5FA" />
+          <stop offset="100%" stopColor="#2563EB" />
+        </linearGradient>
+        <filter id="thoughtGlow" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="2" stdDeviation="2" floodColor="#2563EB" floodOpacity="0.25" />
+        </filter>
+      </defs>
+
+      {/* Main fluffy cloud body */}
+      <path
+        d="M27.5 13.5C27.5 13.2 27.5 12.9 27.5 12.6C27.5 8.4 24.1 5 19.9 5C17 5 14.5 6.6 13.3 9C12.5 8.4 11.5 8 10.4 8C7.5 8 5.1 10.4 5.1 13.3C5.1 13.8 5.2 14.3 5.4 14.7C3.4 15.8 2 17.9 2 20.3C2 23.9 4.9 26.8 8.5 26.8H27.5C31.1 26.8 34 23.9 34 20.3C34 16.9 31.4 14.1 28 13.6C27.8 13.5 27.6 13.5 27.5 13.5Z"
+        fill="url(#thoughtCloudGrad)"
+        stroke="#E0F2FE"
+        strokeWidth="1.2"
+        filter="url(#thoughtGlow)"
+      />
+
+      {/* Inner highlight gleam */}
+      <path
+        d="M13 11C14.2 9.5 16.5 8 19.5 8C22.5 8 24.5 9.8 25.2 11.5"
+        stroke="white"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        opacity="0.75"
+      />
+
+      {/* Trailing thought dots */}
+      <circle cx="6.5" cy="29" r="1.8" fill="#38BDF8" stroke="#E0F2FE" strokeWidth="0.8" />
+      <circle cx="3.5" cy="31" r="1" fill="#60A5FA" />
+      
+      {/* Tiny embedded heart in cloud center */}
+      <path
+        d="M19 14.5C18.2 13.6 16.9 13.6 16.1 14.4C15.3 15.2 15.3 16.5 16.1 17.3L19 20.2L21.9 17.3C22.7 16.5 22.7 15.2 21.9 14.4C21.1 13.6 19.8 13.6 19 14.5Z"
+        fill="#FFFFFF"
+        opacity="0.9"
+      />
+    </svg>
+  );
+}
+
 interface SparkleTextProps {
   children: ReactNode;
   className?: string;
@@ -69,7 +129,7 @@ interface AnnotationProps {
 export function CircledText({
   children,
   className = '',
-  strokeColor = '#818CF8', // Gentle indigo/violet like the reference
+  strokeColor = '#818CF8',
 }: AnnotationProps) {
   return (
     <span className={`relative inline-block px-2 py-0.5 ${className}`}>
@@ -98,13 +158,13 @@ export function CircledText({
 export function CurvedUnderlineText({
   children,
   className = '',
-  strokeColor = '#818CF8',
+  strokeColor = '#3B82F6',
 }: AnnotationProps) {
   return (
     <span className={`relative inline-block ${className}`}>
       <span className="relative z-10">{children}</span>
       <svg
-        className="absolute -bottom-2.5 left-0 w-full h-4 pointer-events-none overflow-visible"
+        className="absolute -bottom-1 sm:-bottom-1.5 left-0 w-full h-3 sm:h-3.5 pointer-events-none overflow-visible"
         viewBox="0 0 100 20"
         preserveAspectRatio="none"
       >
@@ -115,14 +175,14 @@ export function CurvedUnderlineText({
           strokeWidth="3.5"
           strokeLinecap="round"
           vectorEffect="non-scaling-stroke"
-          className="opacity-80"
+          className="opacity-85 animate-sketch-draw"
         />
       </svg>
     </span>
   );
 }
 
-/** Hand-drawn wavy zigzag / squiggle underline (like 'empowered' in reference) */
+/** Hand-drawn wavy zigzag / squiggle underline */
 export function SquiggleText({
   children,
   className = '',
@@ -151,7 +211,7 @@ export function SquiggleText({
   );
 }
 
-/** Sketchy italic red/rose underline (like 'not easy' in reference) */
+/** Sketchy italic red/rose underline */
 export function SketchUnderlineText({
   children,
   className = '',
@@ -162,7 +222,7 @@ export function SketchUnderlineText({
       <span className="relative z-10">{children}</span>
       <svg
         className="absolute -bottom-1.5 left-0 w-full h-2.5 pointer-events-none overflow-visible"
-        viewBox="0 0 100 10"
+        viewBox="0 0 100 100"
         preserveAspectRatio="none"
       >
         <path

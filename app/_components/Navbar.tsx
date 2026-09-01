@@ -1,15 +1,14 @@
 'use client';
 
 import Link from 'next/link';
-import { Feather, Inbox, Globe } from 'lucide-react';
+import { Feather, Globe } from 'lucide-react';
 
 interface NavbarProps {
   lang?: 'bn' | 'en';
   onLangChange?: (lang: 'bn' | 'en') => void;
-  boxCount?: number;
 }
 
-export default function Navbar({ lang = 'bn', onLangChange, boxCount = 0 }: NavbarProps) {
+export default function Navbar({ lang = 'bn', onLangChange }: NavbarProps) {
   return (
     <header className="sticky top-0 z-40 w-full backdrop-blur-md bg-[#F0F4F8]/90 border-b border-blue-950/10">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
@@ -26,17 +25,6 @@ export default function Navbar({ lang = 'bn', onLangChange, boxCount = 0 }: Navb
 
         {/* Actions */}
         <div className="flex items-center gap-2">
-          <Link
-            href="/box"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium text-slate-800/85 hover:bg-blue-900/10 border border-blue-950/15 transition-all"
-          >
-            <Inbox className="w-3.5 h-3.5 text-blue-900" />
-            <span className="hidden sm:inline">{lang === 'bn' ? 'চিঠির বাক্স' : 'Box'}</span>
-            {boxCount > 0 && (
-              <span className="ml-0.5 px-1.5 rounded-full bg-blue-900 text-[10px] text-blue-50 font-mono">{boxCount}</span>
-            )}
-          </Link>
-
           <Link
             href="/write"
             className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium bg-gradient-to-r from-blue-700 via-indigo-800 to-slate-900 text-sky-50 shadow-xs hover:shadow-sm hover:scale-[1.02] active:scale-[0.98] transition-all border border-sky-400/20"

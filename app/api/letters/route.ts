@@ -56,7 +56,7 @@ export async function POST(request: NextRequest) {
         envelopeColor: envelopeColor || '#7F1D1D',
         language: language || 'bn',
       },
-      { upsert: true, new: true, setDefaultsOnInsert: true }
+      { upsert: true, returnDocument: 'after', setDefaultsOnInsert: true }
     );
 
     const letterData: LetterData = {

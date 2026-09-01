@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import type { LetterData } from "@/app/_lib/types";
-import { useLang, useBoxCount } from "@/app/_lib/hooks";
+import { useLang } from "@/app/_lib/hooks";
 import Navbar from "@/app/_components/Navbar";
 import Footer from "@/app/_components/Footer";
 import LetterSheet from "./LetterSheet";
@@ -13,10 +13,8 @@ type Step = "write" | "seal" | "share";
 
 export default function WriteClient() {
   const [lang, setLang] = useLang();
-  const boxCount = useBoxCount();
   const [step, setStep] = useState<Step>("write");
   const [letter, setLetter] = useState<LetterData | null>(null);
-
 
   const handleLetterDone = (data: LetterData) => {
     setLetter(data);
@@ -38,7 +36,7 @@ export default function WriteClient() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#F0F4F8]">
-      <Navbar lang={lang} onLangChange={setLang} boxCount={boxCount} />
+      <Navbar lang={lang} onLangChange={setLang} />
 
       <main className="flex-1 flex flex-col items-center">
         {step === "write" && (

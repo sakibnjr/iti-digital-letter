@@ -5,16 +5,14 @@ import Footer from '@/app/_components/Footer';
 import HeroSection from './(home)/_components/HeroSection';
 import FeatureCards from './(home)/_components/FeatureCards';
 import CTASection from './(home)/_components/CTASection';
-import { useLang, useBoxCount } from '@/app/_lib/hooks';
+import { useLang } from '@/app/_lib/hooks';
 
 export default function HomePage() {
   const [lang, setLang] = useLang();
-  const boxCount = useBoxCount();
-
 
   return (
     <div className="min-h-screen flex flex-col bg-[#F0F4F8]">
-      <Navbar lang={lang} onLangChange={setLang} boxCount={boxCount} />
+      <Navbar lang={lang} onLangChange={setLang} />
       <main className="flex-1">
         <HeroSection lang={lang} />
         <FeatureCards lang={lang} />

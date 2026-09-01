@@ -26,7 +26,7 @@ export async function GET(
         $inc: { views: 1 },
         $setOnInsert: { firstOpenedAt: new Date() },
       },
-      { new: true }
+      { returnDocument: 'after' }
     );
 
     if (!letterDoc) {
@@ -102,7 +102,7 @@ export async function PATCH(
     const updated = await LetterModel.findOneAndUpdate(
       { letterId: id },
       { $set: updateFields },
-      { new: true }
+      { returnDocument: 'after' }
     );
 
     if (!updated) {

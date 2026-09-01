@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import type { LetterData } from "@/app/_lib/types";
 import { decodeLetter, fetchLetterFromApi } from "@/app/_lib/encoder";
-import { useLang, useBoxCount } from "@/app/_lib/hooks";
+import { useLang } from "@/app/_lib/hooks";
 import Navbar from "@/app/_components/Navbar";
 import Footer from "@/app/_components/Footer";
 import SealedEnvelope from "./SealedEnvelope";
@@ -32,20 +32,20 @@ export default function OpenClient() {
   const [loading, setLoading] = useState(true);
   const [opened, setOpened] = useState(false);
   const [lang, setLang] = useLang();
-  const boxCount = useBoxCount();
 
 
   useEffect(() => {
-    async function loadLetter() {
+    let isMounted = true;
 
+    async function loadLetter() {
       setLoading(true);
 
       // 1. Try to load from MongoDB by ID
       if (idFromUrl) {
         const fetched = await fetchLetterFromApi(idFromUrl);
-        if (fetched) {
+        if (isMounted && fetched) {
           setLetter(fetched);
-          setLang(fetched.language || "bn");
+          if (fetched.language) setLang(fetched.language);
           setLoading(false);
           return;
         }
@@ -53,12 +53,14 @@ export default function OpenClient() {
 
       // 2. Fallback to hash decode
       const fromHash = decodeFromHash();
-      if (fromHash) {
+      if (isMounted && fromHash) {
         setLetter(fromHash);
-        setLang(fromHash.language || "bn");
+        if (fromHash.language) setLang(fromHash.language);
       }
 
-      setLoading(false);
+      if (isMounted) {
+        setLoading(false);
+      }
     }
 
     loadLetter();
@@ -68,17 +70,20 @@ export default function OpenClient() {
       const fromHash = decodeFromHash();
       if (fromHash) {
         setLetter(fromHash);
-        setLang(fromHash.language || "bn");
+        if (fromHash.language) setLang(fromHash.language);
       }
     };
     window.addEventListener("hashchange", handler);
-    return () => window.removeEventListener("hashchange", handler);
+    return () => {
+      isMounted = false;
+      window.removeEventListener("hashchange", handler);
+    };
   }, [idFromUrl, setLang]);
 
   if (loading) {
     return (
       <div className="min-h-screen flex flex-col bg-[#F0F4F8]">
-        <Navbar lang={lang} onLangChange={setLang} boxCount={boxCount} />
+        <Navbar lang={lang} onLangChange={setLang} />
         <main className="flex-1 flex items-center justify-center p-4">
           <div className="flex flex-col items-center gap-3 text-slate-900">
             <Loader2 className="w-8 h-8 animate-spin text-blue-800 opacity-70" />
@@ -94,7 +99,7 @@ export default function OpenClient() {
   if (!letter)
     return (
       <div className="min-h-screen flex flex-col bg-[#F0F4F8]">
-        <Navbar lang={lang} onLangChange={setLang} boxCount={boxCount} />
+        <Navbar lang={lang} onLangChange={setLang} />
         <main className="flex-1 flex items-center justify-center p-4">
           <div className="bg-[#FAFDFE] border border-blue-900/20 rounded-3xl p-8 text-center max-w-md paper-grain shadow-xl">
             <div className="w-14 h-14 rounded-full bg-rose-900/10 text-rose-900 flex items-center justify-center mx-auto mb-4 border border-rose-900/20">
@@ -122,7 +127,7 @@ export default function OpenClient() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#F0F4F8]">
-      <Navbar lang={lang} onLangChange={setLang} boxCount={boxCount} />
+      <Navbar lang={lang} onLangChange={setLang} />
       <main className="flex-1 flex items-center justify-center">
         {!opened ? (
           <SealedEnvelope

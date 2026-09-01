@@ -1,7 +1,7 @@
 'use client';
 
-import { useSyncExternalStore } from 'react';
-import { getStoredLang, setStoredLang, getKeepsakeLetters } from './storage';
+import { useSyncExternalStore, useCallback } from 'react';
+import { getStoredLang, setStoredLang } from './storage';
 
 // Dispatch custom event when storage is modified in same window
 function notifyStorageChange() {
@@ -27,33 +27,14 @@ export function useLang(): ['bn' | 'en', (lang: 'bn' | 'en') => void] {
     () => 'bn' // Server snapshot
   );
 
-  const updateLang = (newLang: 'bn' | 'en') => {
+  const updateLang = useCallback((newLang: 'bn' | 'en') => {
     setStoredLang(newLang);
     notifyStorageChange();
-  };
+  }, []);
 
   return [lang, updateLang];
-}
-
-export function useBoxCount(): number {
-  return useSyncExternalStore(
-    subscribeStorage,
-    () => getKeepsakeLetters().length,
-    () => 0 // Server snapshot
-  );
-}
-
-const SERVER_LETTERS: ReturnType<typeof getKeepsakeLetters> = [];
-
-export function useKeepsakeLetters() {
-  return useSyncExternalStore(
-    subscribeStorage,
-    () => getKeepsakeLetters(),
-    () => SERVER_LETTERS // Server snapshot
-  );
 }
 
 export function notifyStorageUpdated() {
   notifyStorageChange();
 }
-
