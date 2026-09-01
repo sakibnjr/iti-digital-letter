@@ -15,10 +15,12 @@ export default function Navbar({ lang = 'bn', onLangChange, boxCount = 0 }: Navb
       <div className="max-w-4xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-amber-800 to-rose-950 flex items-center justify-center text-amber-100 font-serif font-bold text-base shadow-xs border border-amber-500/30 group-hover:scale-105 transition-transform">
-            ই
+          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-sky-900 via-indigo-950 to-blue-950 flex items-center justify-center text-amber-100 font-serif font-bold text-base shadow-xs border border-sky-400/30 group-hover:scale-105 transition-transform">
+            নী
           </div>
-          <span className="font-serif text-xl font-bold text-amber-950">ইতি</span>
+          <span className="font-serif text-xl font-bold text-amber-950">
+            {lang === 'bn' ? 'নীলখাম' : 'Neelkhaam'}
+          </span>
         </Link>
 
         {/* Actions */}

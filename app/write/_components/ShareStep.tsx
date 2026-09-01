@@ -33,7 +33,7 @@ export default function ShareStep({ lang, letter, onWriteAnother }: ShareStepPro
   return (
     <div ref={ref} className="w-full max-w-xl mx-auto px-4 py-8">
       <div className="bg-[#FAF6EE] border border-amber-900/25 rounded-3xl p-6 sm:p-10 shadow-xl paper-grain text-center">
-        <div className="w-14 h-14 rounded-full bg-amber-800 text-amber-100 flex items-center justify-center font-serif text-xl font-bold shadow-md border border-amber-400/40 mx-auto mb-4">ইতি</div>
+        <div className="w-14 h-14 rounded-full bg-gradient-to-br from-indigo-900 to-rose-950 text-amber-100 flex items-center justify-center font-serif text-sm font-bold shadow-md border border-amber-400/40 mx-auto mb-4">নীলখাম</div>
 
         <h2 className="font-serif text-xl font-bold text-amber-950 mb-6">{lang === 'bn' ? 'চিঠি সিলমোহরযুক্ত হয়েছে' : 'Letter Sealed'}</h2>
 

@@ -27,7 +27,7 @@ export default function SealAnimation({ onComplete }: SealAnimationProps) {
       <div className="relative">
         {/* Wax drop */}
         <div data-wax-drop className="w-24 h-24 rounded-full bg-gradient-to-br from-rose-800 to-rose-950 shadow-2xl flex items-center justify-center">
-          <span data-stamp-text className="font-serif text-2xl font-extrabold text-amber-100">ইতি</span>
+          <span data-stamp-text className="font-serif text-lg font-extrabold text-amber-100">নীলখাম</span>
         </div>
         {/* Glow burst */}
         <div data-seal-glow className="absolute inset-0 w-24 h-24 rounded-full bg-amber-400/0 blur-xl" />

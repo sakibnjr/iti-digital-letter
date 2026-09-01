@@ -102,7 +102,7 @@ export async function GET() {
     const count = await LetterModel.countDocuments();
     return NextResponse.json({
       success: true,
-      service: 'iti-digital-letters',
+      service: 'neelkhaam-digital-letters',
       totalLetters: count,
     });
   } catch (error: unknown) {

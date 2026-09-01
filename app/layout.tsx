@@ -26,12 +26,14 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "ইতি (Iti) ✦ texts are boring, send a wax-sealed letter 💌",
-    template: "%s | ইতি (Iti)",
+    default: "নীলখাম (Neelkhaam) ✦ texts are boring, send a wax-sealed letter 💌",
+    template: "%s | নীলখাম (Neelkhaam)",
   },
   description:
     "Romanticize your words into vintage wax-sealed digital letters. No accounts, zero tracking, just pure vibes.",
   keywords: [
+    "নীলখাম",
+    "Neelkhaam",
     "ইতি",
     "Iti",
     "digital love letter",
@@ -42,16 +44,16 @@ export const metadata: Metadata = {
     "private letter",
   ],
   openGraph: {
-    title: "ইতি (Iti) ✦ texts are boring, send a wax-sealed letter 💌",
+    title: "নীলখাম (Neelkhaam) ✦ texts are boring, send a wax-sealed letter 💌",
     description:
       "Romanticize your words into vintage wax-sealed digital letters. No accounts, zero tracking, just pure vibes.",
-    url: "https://iti.app",
-    siteName: "ইতি (Iti)",
+    url: "https://neelkhaam.vercel.app",
+    siteName: "নীলখাম (Neelkhaam)",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ইতি (Iti) ✦ texts are boring, send a wax-sealed letter 💌",
+    title: "নীলখাম (Neelkhaam) ✦ texts are boring, send a wax-sealed letter 💌",
     description:
       "Romanticize your words into vintage wax-sealed digital letters. No accounts, zero tracking, just pure vibes.",
   },

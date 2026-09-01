@@ -34,7 +34,7 @@ export default function LetterReveal({ letter, lang }: LetterRevealProps) {
     <div ref={ref} className="w-full max-w-2xl mx-auto px-4 py-8">
       {/* Parchment */}
       <div className="relative rounded-2xl p-6 sm:p-12 shadow-xl bg-[#FAF6EE] text-[#2C1810] deckle-edge paper-grain" style={{ fontFamily: 'var(--font-bn-serif)' }}>
-        <div className="iti-watermark">ইতি</div>
+        <div className="iti-watermark">নীলখাম</div>
 
         {/* Date & Place */}
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 text-xs text-amber-950/70 mb-8 font-serif">
