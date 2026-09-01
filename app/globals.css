@@ -1,26 +1,183 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #FAF6EE;
+  --foreground: #2C1810;
+  --font-bn-serif: var(--font-noto-serif-bn), serif;
+  --font-en-sans: var(--font-sans), sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  --font-serif-bn: var(--font-noto-serif-bn), serif;
+  --font-sans: var(--font-sans), sans-serif;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-bn-serif);
+  background-image: 
+    radial-gradient(at 100% 0%, rgba(217, 119, 6, 0.04) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(136, 19, 55, 0.03) 0px, transparent 50%);
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+/* Texture Overlays */
+.paper-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+/* Vintage Deckled Paper Edge */
+.deckle-edge {
+  box-shadow: 
+    0 1px 1px rgba(0,0,0,0.05), 
+    0 3px 6px rgba(0,0,0,0.06), 
+    0 10px 20px rgba(44, 24, 16, 0.06),
+    0 20px 35px -5px rgba(44, 24, 16, 0.04);
+  border: 1px solid rgba(197, 160, 89, 0.25);
+}
+
+/* 3D Envelope Transformations */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+/* Wax Seal 3D Bevel & Light */
+.wax-seal-shadow {
+  box-shadow: 
+    0 4px 10px rgba(0, 0, 0, 0.25),
+    inset 0 2px 4px rgba(255, 255, 255, 0.35),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.35);
+}
+
+.wax-seal-inner {
+  box-shadow: 
+    inset 0 2px 4px rgba(0, 0, 0, 0.3),
+    0 1px 2px rgba(255, 255, 255, 0.25);
+}
+
+/* Watermark */
+.iti-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-10deg);
+  font-family: var(--font-bn-serif);
+  font-size: 8rem;
+  font-weight: 700;
+  color: rgba(197, 160, 89, 0.04);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Keyframe Animations */
+@keyframes waxBreak {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1) rotate(4deg); opacity: 0.8; }
+  100% { transform: scale(0.6) rotate(15deg); opacity: 0; filter: blur(3px); }
+}
+
+@keyframes letterSlideOut {
+  0% { transform: translateY(0) scale(0.95); opacity: 0; }
+  100% { transform: translateY(-5px) scale(1); opacity: 1; }
+}
+
+@keyframes warmPulse {
+  0%, 100% { opacity: 0.85; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.02); }
+}
+
+.animate-wax-break {
+  animation: waxBreak 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-letter-slide {
+  animation: letterSlideOut 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-warm-pulse {
+  animation: warmPulse 2.5s ease-in-out infinite;
+}
+
+/* Sparkle Floating & Twinkle Animations */
+@keyframes sparkleFloat1 {
+  0%, 100% {
+    transform: translate(0, 0) scale(0.9) rotate(0deg);
+    opacity: 0.75;
+  }
+  50% {
+    transform: translate(-3px, -5px) scale(1.15) rotate(15deg);
+    opacity: 1;
+  }
+}
+
+@keyframes sparkleFloat2 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1.1) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(4px, -6px) scale(0.85) rotate(-12deg);
+    opacity: 0.7;
+  }
+}
+
+@keyframes sparkleFloat3 {
+  0%, 100% {
+    transform: translate(-50%, 0) scale(0.8) rotate(0deg);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(-50%, 4px) scale(1.2) rotate(20deg);
+    opacity: 1;
+  }
+}
+
+@keyframes sketchDraw {
+  0% {
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+    opacity: 0;
+  }
+  100% {
+    stroke-dasharray: 400;
+    stroke-dashoffset: 0;
+    opacity: 0.9;
+  }
+}
+
+.animate-sparkle-float-1 {
+  animation: sparkleFloat1 2.8s ease-in-out infinite;
+}
+
+.animate-sparkle-float-2 {
+  animation: sparkleFloat2 3.2s ease-in-out infinite 0.4s;
+}
+
+.animate-sparkle-float-3 {
+  animation: sparkleFloat3 2.5s ease-in-out infinite 0.8s;
+}
+
+.animate-sketch-draw {
+  animation: sketchDraw 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+
+/* Clean custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(180, 83, 9, 0.2);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(180, 83, 9, 0.35);
 }
